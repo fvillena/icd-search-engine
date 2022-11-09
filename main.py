@@ -13,7 +13,7 @@ parser = whoosh.qparser.MultifieldParser(["description"], ix.schema, group=whoos
 searcher = ix.searcher()
 
 @app.get("/")
-async def search_cieom(q: str):  
+async def search(q: str):  
     myquery = parser.parse(q)
     results = searcher.search(myquery, limit=10, terms=True)
     response = []
