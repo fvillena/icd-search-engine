@@ -30,7 +30,7 @@ ix = whoosh.index.create_in("index", schema)
 writer = ix.writer()
 
 
-with open('icd.csv', newline='', encoding="iso-8859-1") as csvfile:
+with open('icd.csv', newline='', encoding="utf-8-sig") as csvfile:
     reader = csv.DictReader(csvfile, delimiter=";")
     for row in reader:
         writer.add_document(code=row["code"],description=row["description"])
